@@ -1,0 +1,38 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:40px;
+}
+
+.about{
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 80%;
+    height: 500px;
+    background: var(--thirdcolortransperent);
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
+    max-width: 1200px;
+}
+.about h1{
+    left: 15px;
+}
+.map{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 80%;
+    height: 500px;
+    background: var(--thirdcolortransperent);
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
+    max-width: 1200px;
+}
+.map h1{
+    right: 15px;
+}

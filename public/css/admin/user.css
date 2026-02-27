@@ -1,0 +1,144 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:40px;
+}
+.Users{
+    margin-top: 120px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    width: 80%;
+    min-height: 500px;
+    border-radius: 15px;
+    max-width: 1200px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:10px;
+    padding-bottom: 40px;
+}
+.user-card{
+    padding-top: 40px;
+    position: relative;
+    display: flex;
+    bottom:0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    background: var(--thirdcolortransperent);
+    box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
+    color: white;
+    font-family: "Sigmar Cyr";
+    transition: bottom 0.8s, box-shadow 0.5s;
+}
+.pagination ul{
+    list-style-type: none;
+    display: flex;
+    margin:0;
+}
+.pagination nav{
+    height: fit-content;
+}
+.pagination li{
+    text-decoration: none;
+    color: red;
+    padding: 8px;
+    margin-left:8px;
+    margin-right: 8px;
+    transition: padding 0.2s, margin 0.2s;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    text-wrap: nowrap;
+}
+.pagination nav a{
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+.user-card .avatar{
+    pointer-events: none;
+}
+.user-card .info{
+    pointer-events: none;
+}
+.user-card:hover{
+    bottom:10px;
+    box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor), 0 0 15px black;
+}
+.user-card h2{
+    left: 15px;
+}
+h2{
+    padding: 8px;
+    border-radius: 8px;
+    background: var(--thithcolor);
+    font-family: "Sigmar Cyr";
+    font-size: 25px;
+    color: rgb(232, 232, 232);
+    position: absolute;
+    top:-45px;
+    box-shadow: 0 0 15px black;
+}
+.tool{
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    z-index: 100;
+    background: rgba(0,0,0,0.5);
+    border-radius: 15px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    padding: 8px;
+}
+.tool button{
+    text-align: center;
+    font-family: 'Sigmar Cyr';
+    font-size: 15px;
+    border-radius: 15px;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: var(--headercolor);
+    color: white;
+    width: 220px;
+    cursor: pointer;
+}
+.pagination{
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    box-shadow: 0 0 15px black;
+}
+@media (max-width:1400px) {
+    .Users{
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (max-width:1000px) {
+    .Users{
+        grid-template-columns: 1fr 1fr ;
+    }
+}
+
+

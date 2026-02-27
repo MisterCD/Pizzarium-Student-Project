@@ -1,0 +1,419 @@
+:root{
+    --headercolor:#a40202;
+    --maincolor:#c56415;
+    --maincolordark:#964401;
+    --maincolorlight:#fdaf6f;
+    --thirdcolor:#84024B;
+    --thirdcolortransperent:#6b010189;
+    --thithcolor:#6B0101;
+}
+@font-face {
+    font-family: "Sigmar Cyr";
+    src: url(../fonts/Sigmar\ Cyr\ \(sherbackoffalex\).otf);
+}
+body{
+    margin:0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:var(--maincolorlight);
+    gap:10px;
+}
+header{
+    width: 100%;
+    height: 80px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+    background: var(--headercolor);
+    position: fixed;
+    top:0;
+    z-index: 100;
+    border-bottom-left-radius:25px;
+    border-bottom-right-radius:25px;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.508);
+}
+@media (max-width:1200px) {
+    header .rightside{
+        position: absolute;
+        bottom: -70px;
+        padding-bottom: 8px;
+        padding-left: 8px;
+        padding-right: 8px;
+        background: var(--headercolor);
+        border-bottom-left-radius:25px;
+        border-bottom-right-radius:25px;
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.508);
+    }
+    header{
+        grid-template-columns: 1fr;
+    }
+    footer nav{
+        display: none;
+    }
+}
+.leftside{
+    display: flex;
+    align-items: center;
+    gap:16px;
+}
+nav{
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+nav a{
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    margin-left:8px;
+    margin-right: 8px;
+    transition: padding 0.2s, margin 0.2s;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+    text-wrap: nowrap;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+nav a:hover{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+header .logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img{
+    width: 80px;
+    height: 80px;
+}
+.rightside{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.rightside a{
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    margin-left:8px;
+    margin-right: 8px;
+    transition: padding 0.2s, margin 0.2s;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    text-wrap: nowrap;
+}
+.rightside a:hover{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.rightside .vallet{
+    font-size: 15px;
+    font-family: "Sigmar Cyr";
+    color: white;
+}
+.rightside .bascket{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: white;
+    border: 2px solid white;
+}
+.bascket img{
+    width: 20px;
+    height: 20px;
+}
+.avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: white;
+    border: 2px solid white;
+}
+.avatar img{
+    width: 60px;
+    height: 60px;
+}
+#background{
+    top:0;
+    left:0;
+    position: fixed;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
+#ground1{
+    z-index: 2;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 150px;
+    background: var(--maincolor);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+#ground2{
+    z-index: 1;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 200px;
+    background: var(--maincolordark);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+.fish{
+    z-index: 10;
+    width: 150px;
+    height: 50px;
+    background: url(../images/fish.png) no-repeat center;
+    background-size: contain;
+    transition: top 5s, left 5s;
+}
+#fish1{
+    position: absolute;
+    transform: rotate(180deg);
+    animation: left 10s infinite;
+}
+@keyframes left {
+    0%{
+        transform: translateX(0) rotateX(180deg) rotateZ(180deg);
+    }
+    49%{
+        transform: translateX(300px) rotateX(180deg) rotateZ(180deg);
+    }
+    50%{
+        transform: translateX(300px) rotateX(0deg);
+    }
+    99%{
+        transform: translateX(0) rotateX(0deg);
+    }
+    100%{
+        transform: rotateX(180deg) rotateZ(180deg);
+    }
+}
+#fish2{
+    position: absolute;
+    transform: rotate(180deg);
+    animation: left 15s infinite;
+}
+#fish3{
+    position: absolute;
+    transform: rotate(180deg);
+    animation: left 5s infinite;
+}
+#fish4{
+    position: absolute;
+    transform: rotate(180deg);
+    animation: left 8s infinite;
+}
+.pizza{
+    width: 64px;
+    height: 64px;
+    background: url(../images/Piizaball.png) no-repeat center;
+    background-size: contain;
+}
+#pizza1{
+    position: absolute;
+    animation: bubble 8s linear infinite;
+}
+@keyframes bubble{
+    0%{
+        opacity:0;
+        transform: translateX(0) translateY(0) rotate(0);
+    }
+    10%{
+        opacity: 0.1;
+        transform: translateX(5px) translateY(-10px) rotate(9deg);
+    }
+    20%{
+        opacity: 0.2;
+         transform: translateX(0px) translateY(-20px) rotate(18deg);
+    }
+    30%{
+        opacity: 0.3;
+        transform: translateX(-5px) translateY(-30px) rotate(27deg);
+    }
+    40%{
+        opacity: 0.6;
+        transform: translateX(0px) translateY(-40px) rotate(36deg);
+    }
+    50%{
+        opacity: 1;
+        transform: translateX(5px) translateY(-50px) rotate(45deg);
+    }
+    60%{
+        opacity: 0.6;
+        transform: translateX(0px) translateY(-60px) rotate(64deg);
+    }
+    70%{
+        opacity: 0.3;
+        transform: translateX(-5px) translateY(-70px) rotate(72deg);
+    } 
+    80%{
+        opacity: 0.2;
+        transform: translateX(0px) translateY(-80px) rotate(81deg);
+    }
+    90%{
+        opacity: 0.1;
+        transform: translateX(5px) translateY(-90px) rotate(90deg);
+    }   
+    100%{
+        opacity:0;
+        transform: translate(0px) translateY(-100px) rotate(99deg);
+    }
+}
+#pizza2{
+    position: absolute;
+    animation: bubble 10s linear infinite;
+}
+#pizza3{
+    position: absolute;;
+    animation: bubble 15s linear infinite;
+}
+#pizza4{
+    position: absolute;
+    animation: bubble 5s linear infinite;
+}
+#pizza5{
+    position: absolute;
+    animation: bubble 15s linear infinite;
+}
+#pizza6{
+    position: absolute;
+    animation: bubble 10s linear infinite;
+}
+#pizza7{
+    position: absolute;
+    animation: bubble 15s linear infinite;
+}
+#pizza8{
+    position: absolute;
+    animation: bubble 10s linear infinite;
+}
+#pizza9{
+    position: absolute;
+    animation: bubble 10s linear infinite;
+}
+#pizza10{
+    position: absolute;
+    animation: bubble 10s linear infinite;
+}
+.vodrosli{
+    width:300px;
+    height:300px;
+    background: url(../images/VodrosliDno.png) no-repeat center;
+    background-size: contain;
+}
+#vodrosli1{
+    z-index:5;
+    left:15%;
+    position: absolute;
+    bottom:80px;
+}
+#vodrosli2{
+    z-index:5;
+    right:15%;
+    position: absolute;
+    bottom:80px;
+}
+#vodrosli3{
+    z-index:5;
+    right:5%;
+    position: absolute;
+    bottom:70px;
+}
+#vodrosli4{
+    z-index:5;
+    left:5%;
+    position: absolute;
+    bottom:70px;
+}
+main{
+    width: 90%;
+    min-height: 100vh;
+}
+h1{
+    padding: 8px;
+    border-radius: 8px;
+    background: var(--thithcolor);
+    font-family: "Sigmar Cyr";
+    font-size: 25px;
+    color: rgb(232, 232, 232);
+    position: absolute;
+    top:-45px;
+    box-shadow: 0 0 15px black;
+}
+footer{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+    width: 100%;
+    height: 85px;
+    background: var(--headercolor);
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+    box-shadow: 0 -15px 15px rgba(0, 0, 0, 0.508);
+}
+footer .contacts{
+    color: white;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+}
+@media (max-width:600px) {
+    main{
+        width: 100%;
+    }
+    h1{
+        top:-25px;
+        font-size: 15px;
+    }
+    nav a{
+        font-size: 12px;
+    }
+    header .rightside{
+        bottom: -45px;
+    }
+    .rightside a{
+        font-size: 12px;
+    }
+    .rightside .avatar{
+        width: 40px;
+        height: 40px;
+    }
+    .rightside .avatar img{
+        width: 40px;
+        height: 40px;
+    }
+    footer{
+        grid-template-columns: 100px 1fr;
+    }
+    footer .contact{
+        font-size: 5px;
+    }
+}
+
+
+
+

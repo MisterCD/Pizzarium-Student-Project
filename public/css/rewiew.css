@@ -1,0 +1,39 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:40px;
+}
+
+.rewiews-container{
+    margin-top: 150px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    row-gap: 40px;
+}
+.rewiew-card{
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border-radius: 15px;
+    background: var(--thirdcolortransperent);
+    box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
+}
+.rewiew-card h2{
+    left: 15px;
+}
+
+
+
+
+
+
+
+
+

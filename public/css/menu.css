@@ -1,0 +1,290 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:40px;
+}
+.menu{
+    margin-top: 150px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    padding: 8px;
+    background: var(--thirdcolortransperent);
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
+}
+
+.menu h1{
+    right:25px;
+}
+.menu .filter{
+    position: absolute;
+    z-index: 2;
+    top:-25px;
+    left: 15px;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 100px 250px 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    background: var(--maincolordark);
+    width: 750px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px black;
+}
+.filter .cost-bar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+.cost-bar .slide-cost{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+}
+#min{
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid black;
+    z-index: 1;
+}
+#max{
+    left:20%;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid black;
+    z-index: 1;
+}
+.cost-bar input[type="number"]{
+    position: static;
+    text-align: center;
+    width: 100%;
+    outline: none;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-family: 'Sigmar Cyr';
+    border-radius: 15px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.menu-type{
+    display: grid;
+    grid-template-columns: 1fr;
+    position: absolute;
+    top:45px;
+    left: 20px;
+    background: var(--headercolor);
+    align-items: center;
+    justify-items: center;
+    padding: 8px;
+    border-radius:15px;
+    animation: drop 2s ease;
+    overflow: hidden;
+    box-shadow: 0 0 15px black;
+}
+
+.menu-type .checkbox{
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    font-size: 15px;
+    font-family: 'Sigmar Cyr';
+    color: white;
+}
+#menu-button{
+    height: 40px;
+    background: rgba(0,0,0,0.2);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    color: white;
+    padding: 8px;
+    margin-left:8px;
+    margin-right: 8px;
+    transition: padding 0.2s, margin 0.2s;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+}
+#menu-button:hover{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.filter select{
+    height: 40px;
+    background: rgba(0,0,0,0.2);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    color: white;
+    padding: 8px;
+    margin-left:8px;
+    margin-right: 8px;
+    transition: padding 0.2s, margin 0.2s;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+}
+.filter select:hover{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.menu-list{
+    width: 100%;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    row-gap:40px;
+    margin-bottom: 50px;
+}
+.menu-card{
+    position: relative;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--maincolor);
+    width: 90%;
+    max-width: 300px;
+    height: 400px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px black;
+}
+.menu-card img{
+    width: 100%;
+    height: 40%;
+    border-radius: 10px;
+}
+.menu-card p {
+    background: white;
+    height: 30px;
+    width: fit-content;
+    padding: 8px;
+    border-radius: 15px;
+    padding:8px;
+    text-align: center;
+    font-family: "Sigmar Cyr";
+}
+.menu-card span{
+    background: white;
+    height: 130px;
+    width: 90%;
+    border-radius: 10px;
+    padding: 5px;
+    overflow: hidden;
+    font-family: "Sigmar Cyr";
+}
+.menu-card div{
+    position: absolute;
+    bottom: -15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 110%;
+}
+.menu-card h2{
+    position: absolute;
+    top:-30px;
+    padding: 8px;
+    left: 15px;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+    color: white;
+    border-radius: 15px;
+    background: var(--thithcolor);
+    box-shadow: 0 0 15px black;
+}
+.pagination{
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    box-shadow: 0 0 15px black;
+}
+.pagination a{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-family: "Sigmar Cyr";
+}
+.menu-card button{
+    border-radius: 15px;
+    font-size: 15px;
+    background: var(--headercolor);
+    color: white;
+    font-family: "Sigmar Cyr";
+    border: 2px solid white;
+    outline: none;
+    cursor: pointer;
+}
+@media (max-width:1800px) {
+    .menu-list{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media(max-width:1150px){
+    .menu-list{
+        grid-template-columns: 1fr 1fr;
+    }
+    .menu{
+        margin-top: 200px;
+    }
+    .menu h1{
+        display: none;
+    }
+}
+@media(max-width:900px){
+    .menu-list{
+        margin-top: 120px;
+    }
+    .menu{
+        width: 100%;
+    }
+    .menu .filter{
+        width: 500px;
+        height: 100px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+
+
+
