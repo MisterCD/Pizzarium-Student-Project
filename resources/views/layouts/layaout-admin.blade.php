@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{{  asset("/css/app.css") }}">
         <style>
             .pizza{
-                background: url(./images/Глаз.png) center no-repeat;
+                background: url({{  asset("/images/Глаз.png") }}) center no-repeat;
                 background-size: cover;
             }
         </style>

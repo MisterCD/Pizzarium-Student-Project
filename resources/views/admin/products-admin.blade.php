@@ -48,7 +48,7 @@
                     </div>
                 </div>
             @endforeach
-            <a href="" class="add-card">
+            <a href="{{ route("product-add") }}" class="add-card">
                 +
             </a>
             <div class="pagination">

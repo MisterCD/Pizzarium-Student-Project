@@ -1,0 +1,21 @@
+
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+
+form{
+    position: relative;
+    background: var(--thirdcolortransperent);
+    border-radius: 15px;
+    width: 350px;
+    height: 450px;
+    box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
+}
+form h1{
+    left: 15px;
+}

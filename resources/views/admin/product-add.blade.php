@@ -1,6 +1,6 @@
-@extends("./layouts/layaout")
+@extends("./layouts/layaout-admin")
 @section("styles")
-   
+   <link rel="stylesheet" href="/css/admin/product-add.css">
 @endsection
 @section("description")
 
@@ -8,13 +8,14 @@
 @section("content")
    <section class="product">
         <form>
+            <h1>Добавить товар</h1>
             <label for="file">Выберите изображение</label>
             <input type="file" id="file" hidden>
             <input type="number" placeholder="Цена">
-            <textarea>
-
+            <textarea placeholder="Описание" name="description">
+                
             </textarea>
-            <button type="submit"></button>
+            <button type="submit">Создать</button>
         </form>
    </section>
 @endsection

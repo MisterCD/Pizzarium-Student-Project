@@ -49,6 +49,9 @@ class MainController extends Controller{
         $products = DB::table("Products")->paginate(7);
         return view("admin/products-admin", ["products" => $products]);
     }
+    public function admin_add_product(){
+        return view("admin/product-add");
+    }
 }
 
 
