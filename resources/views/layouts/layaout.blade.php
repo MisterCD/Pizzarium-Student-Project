@@ -87,6 +87,27 @@
                 <div id="ground2"></div>
                 <div id="ground3"></div>
             </div>
+            <svg id="filter" style="position: fixed; top:0; left:0;">
+                <filter id="water">
+                    <feTurbulence
+                        baseFrequency="0.02 0.04"
+                        numOctaves="1"
+                    >
+                    <animate
+                        attributeName="baseFrequency"
+                        dur="10s"
+                        values="0.02 0.04; 0.03 0.06; 0.04"
+                        calcMode="paced"
+                        repeatCount="indefinite"
+                    />
+                    </feTurbulence>
+                    <feDisplacementMap
+                        in="SourceGraphic"
+                        scale="10"
+                    />
+                    <feGaussianBlur stdDeviation="0.5"/>
+                </filter>
+            </svg>
             <main>
                 @yield("content")
             </main>
