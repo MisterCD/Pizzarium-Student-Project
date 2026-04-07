@@ -83,6 +83,7 @@
                 <div class="vodrosli" id="vodrosli2"></div>
                 <div class="vodrosli" id="vodrosli3"></div>
                 <div class="vodrosli" id="vodrosli4"></div>
+                <div class="rook"></div>
                 <div id="ground1"></div>
                 <div id="ground2"></div>
                 <div id="ground3"></div>
@@ -129,5 +130,8 @@
             </footer>
                 @yield("scripts")
                 <script src="./js/app.js"></script>
+                @if(Route::currentRouteName() != "main")
+                    <script src="./js/random.js"></script>
+                @endif
     </body>
 </html>

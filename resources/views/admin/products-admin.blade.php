@@ -57,3 +57,6 @@
         </div>
    </section>
 @endsection
+@section("scripts")
+    <script src="{{ asset("js/menu.js") }}"></script>
+@endsection
