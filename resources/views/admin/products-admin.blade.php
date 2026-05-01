@@ -39,13 +39,13 @@
             @foreach ($products as $product)
                 <div class="menu-card">
                     <h2>{{ $product->name }}</h2>
-                    <img src="{{ $product->img }}" alt="Product Foto">
-                    <div class="info">
-                        <ul>
-                            <li>id : {{ $product->id }}</li>
-                            <li>цена : {{ $product->cost }}</li>
-                        </ul>
-                    </div>
+                    <img src="{{ "../".$product->img }}" alt="Product Image">
+                    <p>
+                        {{ $product->cost }}
+                    </p>
+                    <span>
+                        {{ $product->description }}
+                    </span>
                 </div>
             @endforeach
             <a href="{{ route("product-add") }}" class="add-card">

@@ -37,35 +37,37 @@
 
         </form>
         <div class="menu-list">
+            @foreach ($products as $product)
             <div class="menu-card">
-                <h2>Название</h2>
-                <img src="" alt="">
+                <h2>{{ $product->name }}</h2>
+                <img src=" {{ $product->img }}" alt="product image">
                 <p>
-                    Цена
+                    {{ $product->cost }}
                 </p>
                 <span>
-                    Описание
+                    {{ $product->description }}
                 </span>
                 @if(empty(session("userId")))
                     <div>
                         <form>
-                            <input type="number" hidden>
+                            <input type="number" hidden value="{{ $product->id }}">
                             <button type="submit">Подробнее</button>
                         </form>
                     </div>
                 @else
                     <div>
                         <form>
-                            <input type="number" hidden>
+                            <input type="number" hidden value="{{ $product->id }}">
                             <button type="submit">Подробнее</button>
                         </form>
                         <form>
-                            <input type="number" hidden>
+                            <input type="number" hidden value="{{ $product->id }}">
                             <button type="submit">В корзину</button>
                         </form>
                     </div>
                 @endif
             </div>
+            @endforeach
             <div class="pagination">
                 <a></a>
             </div>

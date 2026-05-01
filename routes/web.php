@@ -31,4 +31,6 @@ Route::get("/logout", [App\Http\Controllers\RegisterController::class, "logout"]
 Route::get("/admin", [App\Http\Controllers\MainController::class, "admin_user"])->name("admin");
 Route::get("/admin/product", [App\Http\Controllers\MainController::class, "admin_product"])->name("products");
 Route::get("/admin/productadd", [App\Http\Controllers\MainController::class, "admin_add_product"])->name("product-add");
+Route::post("/admin/newproduct", [App\Http\Controllers\AdminController::class, "add_product"])->name("new-product");
+Route::post("/admin/newimage", [App\Http\Controllers\AdminController::class, "add_image"])->name("newImage");
 

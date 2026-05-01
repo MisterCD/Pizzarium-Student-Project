@@ -77,7 +77,7 @@ class RegisterController extends Controller{
             session(["username" => $user->get(0)->username]);
             session(["avatarLink" => $avatar]); 
             session(["vallet" => $user->get(0)->vallet]); 
-            session(["isAdmin" => $user->get(0)->isadmin]);
+            session(["isAdmin" => $user->get(0)->isAdmin]);
             return redirect()->route("main");
         }else{
             $error = "Неверный пароль";

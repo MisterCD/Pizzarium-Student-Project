@@ -292,3 +292,33 @@ main{
     bottom:10px;
     box-shadow: 0 0 25px black;
 }
+@media (max-width:1800px) {
+    .menu-list{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media(max-width:1150px){
+    .menu-list{
+        grid-template-columns: 1fr 1fr;
+    }
+    .menu{
+        margin-top: 200px;
+    }
+    .menu h1{
+        display: none;
+    }
+}
+@media(max-width:900px){
+    .menu-list{
+        margin-top: 120px;
+    }
+    .menu{
+        width: 100%;
+    }
+    .menu .filter{
+        width: 500px;
+        height: 100px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
