@@ -13,24 +13,24 @@
             <div class="menu-type" style="display:none;">
                 <div class="checkbox">
                     <p>Пицца</p>
-                    <input type="checkbox">
+                    <input type="checkbox" name="pizza", value="0">
                 </div>
                 <div class="checkbox">
                     <p>Напитки</p>
-                    <input type="checkbox">
+                    <input type="checkbox" name="drink", value="2">
                 </div>
                 <div class="checkbox">
                     <p>Закуски</p>
-                    <input type="checkbox">
+                    <input type="checkbox" name="eat", value="1">
                 </div>
             </div>
             <div class="cost-bar">
                <input type="number" name="min" placeholder="Минимум">
                <input type="number" name="max" placeholder="Максимум">
             </div>
-            <select>
-                <option>По возрастанию</option>
-                <option>По Убыванию</option>
+            <select name="reverse">
+                <option value="asc">По возрастанию</option>
+                <option value="desc">По Убыванию</option>
             </select>
             <button type="submit" id="menu-button">Фильтровать</button>
 
@@ -49,19 +49,19 @@
                 </span>
                 @if(empty(session("userId")))
                     <div>
-                        <form>
-                            <input type="number" hidden value="{{ $product->id }}">
+                        <form action="{{ route("product-page") }}">
+                            <input type="number" name="id" hidden value="{{ $product->id }}">
                             <button type="submit">Подробнее</button>
                         </form>
                     </div>
                 @else
                     <div>
-                        <form>
-                            <input type="number" hidden value="{{ $product->id }}">
+                        <form action="{{ route("product-page") }}">
+                            <input type="number" name="id" hidden value="{{ $product->id }}">
                             <button type="submit">Подробнее</button>
                         </form>
                         <form>
-                            <input type="number" hidden value="{{ $product->id }}">
+                            <input type="number" name="id" hidden value="{{ $product->id }}">
                             <button type="submit">В корзину</button>
                         </form>
                     </div>
@@ -69,7 +69,7 @@
             </div>
             @endforeach
             <div class="pagination">
-                <a></a>
+                {{ $products->links("vendor.pagination.default") }}
             </div>
         </div>
    </section>

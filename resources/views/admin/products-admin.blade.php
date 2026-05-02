@@ -7,29 +7,29 @@
 @endsection
 @section("content")
    <section class="menu">
-        <form class="filter">
+        <form class="filter" action {{ route("products") }}>
             <button type="button" id="menu-button">Тип</button>
             <div class="menu-type" style="display:none;">
                 <div class="checkbox">
                     <p>Пицца</p>
-                    <input type="checkbox">
+                    <input type="checkbox" value="0" name="pizza">
                 </div>
                 <div class="checkbox">
                     <p>Напитки</p>
-                    <input type="checkbox">
+                    <input type="checkbox" value="2" name="drink">
                 </div>
                 <div class="checkbox">
                     <p>Закуски</p>
-                    <input type="checkbox">
+                    <input type="checkbox" value="1" name="eat">
                 </div>
             </div>
             <div class="cost-bar">
                <input type="number" name="min" placeholder="Минимум">
                <input type="number" name="max" placeholder="Максимум">
             </div>
-            <select>
-                <option>По возрастанию</option>
-                <option>По Убыванию</option>
+            <select name="reverse">
+                <option value="asc">По возрастанию</option>
+                <option value="desc">По Убыванию</option>
             </select>
             <button type="submit" id="menu-button">Фильтровать</button>
 
@@ -52,7 +52,7 @@
                 +
             </a>
             <div class="pagination">
-                {{  $products->links() }}
+                {{  $products->links("vendor.pagination.default") }}
             </div>
         </div>
    </section>

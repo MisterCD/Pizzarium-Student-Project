@@ -77,7 +77,7 @@ class AdminController extends Controller{
     }
     public function add_image(Request $request){
         if(session("isAdmin") == 0){
-            return redirect()->route("main");   
+            return response()->json(["link" => "Вы не администратор"]);   
         }
         $request->validate(
             ["image" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048"], 

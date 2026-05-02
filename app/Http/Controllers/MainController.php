@@ -9,12 +9,34 @@ use Illuminate\Support\Facades\Redirect;
 
 
 class MainController extends Controller{
+    private function filter(Request $request, int $pagination) {
+    $min = $request->get("min", null);
+    $max = $request->get("max", null);
+    $reverse = $request->get("reverse", "asc");
+    $types = array_filter([
+        $request->get("pizza"),
+        $request->get("drink"),
+        $request->get("eat")
+    ]);
+    $query = DB::table("Products");
+    if(!empty($types)){
+        $query->whereIn("type_id", $types);
+    }
+    if($min != null){
+        $query->where("cost", ">=", $min); 
+    }
+    if($max != null){
+        $query->where("cost", "<=", $max);
+    }
+
+        return $query->orderBy("cost", $reverse)->paginate($pagination);
+    }
 
     public function main(){
         return view("main");
     }
     public function menu(Request $request){
-        $products = DB::table("Products")->paginate(8);
+        $products = self::filter($request, 9);
         return view("menu", ["products" => $products]);
     }
     public function special(){
@@ -41,12 +63,17 @@ class MainController extends Controller{
             return view("user", ["user" => $user->get(0)]);
         }
     }
+    public function product(Request $request){
+        $id = $request->get("id");
+        $product = DB::table("Products")->where(["id" => $id])->get();
+        return view("product", ["product" => $product->get(0)]);   
+    }
     public function admin_user(){
         $users = DB::table("Users")->paginate(8);
         return view("admin/users-admin", ["users" => $users]);
     }
-    public function admin_product(){
-        $products = DB::table("Products")->paginate(7);
+    public function admin_product(Request $request){
+        $products = self::filter($request, 8);
         return view("admin/products-admin", ["products" => $products]);
     }
     public function admin_add_product(){

@@ -252,11 +252,34 @@ main{
     border-right: 2px solid white;
     box-shadow: 0 0 15px black;
 }
-.pagination a{
+.pagination ul{
+    list-style-type: none;
+    display: flex;
+    margin:0;
+}
+.pagination nav{
+    height: fit-content;
+}
+.pagination li{
     text-decoration: none;
-    color: white;
-    font-size: 15px;
+    color: red;
+    padding: 8px;
+    margin-left:8px;
+    margin-right: 8px;
+    transition: padding 0.2s, margin 0.2s;
     font-family: "Sigmar Cyr";
+    font-size: 15px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    text-wrap: nowrap;
+}
+.pagination nav a{
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
 }
 .menu-card button{
     border-radius: 15px;

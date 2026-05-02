@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\MainController::class, "main"])->name("main");
 Route::get('/menu', [App\Http\Controllers\MainController::class, "menu"])->name("menu");
+Route::get("/product", [App\Http\Controllers\MainController::class, "product"])->name("product-page");
 Route::get('/special', [App\Http\Controllers\MainController::class, "special"])->name("special");
 Route::get('/about', [App\Http\Controllers\MainController::class, "about"])->name("about");
 Route::get('/rewiews', [App\Http\Controllers\MainController::class, "rewiews"])->name("rewiews");
