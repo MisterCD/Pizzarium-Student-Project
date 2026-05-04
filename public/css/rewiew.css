@@ -3,31 +3,233 @@ main{
     flex-direction: column;
     align-items: center;
     gap:40px;
+    margin-bottom: 40px;
 }
 
-.rewiews-container{
+.rewiews-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 150px;
+    width: 80%;
+    gap:40px;
+    max-width: 1200px;
+}
+.filter{
+    background: var(--maincolor);
+    border-radius: 15px;
+    box-shadow: 0 0 15px black;
+}
+.filter select{
+    height: 40px;
+    background: rgba(0,0,0,0.2);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    color: white;
+    padding: 8px;
+    margin-left:8px;
+    margin-right: 8px;
+    transition: padding 0.2s, margin 0.2s;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+}
+.filter button{
+    height: 40px;
+    background: rgba(0,0,0,0.2);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    color: white;
+    padding: 8px;
+    margin-left:8px;
+    margin-right: 8px;
+    transition: padding 0.2s, margin 0.2s;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+}
+.filter select:hover{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.filter form{
+    padding:8px;
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+.filter svg{
+    fill:yellow;
+}
+#stars_filter{
+    display: flex;
+    gap:10px;
+}
+.rewiews-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
-    position: relative;
-    width: 80%;
-    max-width: 1200px;
+    column-gap: 50px;
     row-gap: 40px;
 }
 .rewiew-card{
     position: relative;
     width: 400px;
     height: 200px;
+    padding: 8px;
     border-radius: 15px;
     background: var(--thirdcolortransperent);
     box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
 }
+.rewiew-card img{
+    position: absolute;
+    top:-30px;
+    left:-30px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background: white;
+    width: 60xp;
+    height: 60px;
+}
+.rewiew-card .text{
+    border-top: 2px solid white;
+    margin-top: 25px;
+    text-wrap: wrap;
+    overflow-wrap: break-word;
+    font-size: 15px;
+    font-family: "Sigmar Cyr";
+    color: white;
+    height: 100%;
+}
+.rewiew-card .stars{
+    position: absolute;
+    right:-10px;
+    top:-10px;
+    padding: 8px;
+    display: flex;
+    background: var(--maincolor);
+    box-shadow: 0 0 15px var(--maincolor);
+    border-radius: 15px;
+}
+.stars svg{
+    fill:yellow;
+}
 .rewiew-card h2{
     left: 15px;
+    padding-left: 30px;
 }
+.rewiew form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    border-radius: 15px;
+    padding: 50px;
+    background: var(--thirdcolortransperent);
+    box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
+}
+.rewiew form textarea{
+    font-family: "Sigmar Cyr";
+    border: 2px solid black;
+    border-radius: 15px;
+    resize: none;
+    width: 300px;
+    height: 250px;
+}
+.pagination{
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    box-shadow: 0 0 15px black;
+}
+.pagination ul{
+    list-style-type: none;
+    display: flex;
+    margin:0;
+}
+.pagination nav{
+    height: fit-content;
+}
+.pagination li{
+    text-decoration: none;
+    color: red;
+    padding: 8px;
+    margin-left:8px;
+    margin-right: 8px;
+    transition: padding 0.2s, margin 0.2s;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    text-wrap: nowrap;
+}
+.pagination nav a{
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+h2{
+    position: absolute;
+    top:-30px;
+    padding: 8px;
+    left: 15px;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+    color: white;
+    border-radius: 15px;
+    background: var(--thithcolor);
+    box-shadow: 0 0 15px black;
+}
+.rewiew form button{
+    position: absolute;
+    bottom: -15px;
+    right: -25px;
+    font-family: 'Sigmar Cyr';
+    font-size: 15px;
+    border-radius: 15px;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: var(--thirdcolor);
+    color: white;
+    width: 200px;
+    cursor: pointer;
+}
+.rewiew form h2{
+    left:15px;
+}
+.rewiew #stars_send{
+    width: fit-content;
+    box-shadow: 0 0 15px var(--maincolor);
+    display: flex;
+    gap: 10px;
+    background: var(--maincolor);
+    padding: 8px;
+    border-radius: 15px;
+}
+#stars_send svg{
+    fill:yellow;
+}
+
 
 
 

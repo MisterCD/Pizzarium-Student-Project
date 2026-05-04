@@ -65,6 +65,22 @@ class AdminController extends Controller{
             return redirect()->route("main");   
         }
     }
+    public function add_rewiew(Request $request){
+        if(empty(session(("userId")))){
+            return redirect()->route("registration");
+        }
+        $request->validate(["stars"=>"required|Integer", "rewiew"=>"required|max:200"]);
+        $id = session("userId");
+        $rewiew = DB::table("Rewiews")->where(["user_id" => $id]);
+        $stars = $request->get("stars");
+        $text = $request->get("rewiew");
+        if($rewiew->count() == 0){
+            DB::table("Rewiews")->insert(["user_id" => $id, "stars"=>$stars, "text" =>$text]);
+        }else{
+            $rewiew->update(["stars" => $stars, "text" => $text]);
+        }
+        return redirect()->route("rewiews");
+    }
     public function change_product(){
         if(session("isAdmin") == 0){
             return redirect()->route("main");   

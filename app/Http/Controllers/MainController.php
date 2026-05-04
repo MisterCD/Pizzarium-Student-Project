@@ -47,9 +47,25 @@ class MainController extends Controller{
 
         return view("about");
     }
-    public function rewiews(){
-        $rewiews = DB::table("rewiews")->paginate(8);
-        return view("rewiews");
+    public function rewiews(Request $request){
+        $stars = $request->get("stars", null);
+        $reverse = $request->get("reverse", "desc");
+        $rewiews = DB::table("Rewiews")->join("Users", "Rewiews.user_id", "=", "Users.id");
+        if($stars != null){
+            $rewiews->where("stars", $stars);
+        }
+        switch($reverse){
+            case "old_id":
+                $rewiews->orderBy("id", "desc");
+                break;
+            case "new_id":
+                $rewiews->orderBy("id", "asc");
+                break;
+            default:
+                $rewiews->orderBy("stars", $reverse);
+                break;
+        }
+        return view("rewiews", ["rewiews" => $rewiews->paginate(6)]);
     }
     public function registration(){
         return view("registration");

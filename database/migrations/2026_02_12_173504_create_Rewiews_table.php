@@ -18,8 +18,8 @@ return new class extends Migration
         Schema::create('Rewiews', function (Blueprint $table) {
             $table->integer('id')->nullable(false)->autoIncrement();
             $table->integer('user_id')->nullable(false);
-            $table->integer('stars')->nullable();
-            $table->string("text");
+            $table->integer('stars')->nullable(false);
+            $table->string("text", 200);
             
         });
     }
