@@ -24,7 +24,7 @@
                     <nav>
                        <a href="{{ route("admin") }}">Пользователи</a>
                        <a href="{{ route("products") }}">Товары</a>
-                       <a href="{{ route("admin") }}">Отзывы</a>
+                       <a href="{{ route("rewiews-admin") }}">Отзывы</a>
                        <a href="{{ route("admin") }}">Заказы</a>
                     </nav>
                 </div>

@@ -6,6 +6,23 @@
 
 @endsection
 @section("content")
+    <div class="tool">
+        <form method="post" action="{{ route("deleteProduct") }}">
+            @csrf
+            <input type="number" name="productId" class="productId" hidden>
+            <button>Удалить</button>
+        </form>
+        <form method="get" action="{{ route("changeProductPage") }}">
+             @csrf
+            <input type="number" name="productId" class="productId" hidden>
+            <button>Редактировать</button>
+        </form>
+        <form method="get" action="{{ route("product-page") }}">
+             @csrf
+            <input type="number" name="id" class="productId" hidden>
+            <button>Посмотреть</button>
+        </form>
+   </div>
    <section class="menu">
         <form class="filter" action {{ route("products") }}>
             <button type="button" id="menu-button">Тип</button>
@@ -46,6 +63,7 @@
                     <span>
                         {{ $product->description }}
                     </span>
+                    <input type="number" value="{{ $product->id }}" hidden>
                 </div>
             @endforeach
             <a href="{{ route("product-add") }}" class="add-card">
@@ -59,4 +77,5 @@
 @endsection
 @section("scripts")
     <script src="{{ asset("js/menu.js") }}"></script>
+    <script src="{{ asset("js/admin/products.js") }}"></script>
 @endsection

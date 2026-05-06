@@ -20,7 +20,7 @@ class AdminController extends Controller{
     public function delete_user(Request $request){
         if(session("isAdmin") == 0){
             return redirect()->route("main");   
-        }
+        };
         $id = $request->get("userId");
         DB::table("Users")->delete($id);
         return back();
@@ -28,13 +28,15 @@ class AdminController extends Controller{
     public function set_admin(Request $request){
         if(session("isAdmin") == 0){
             return redirect()->route("main");   
-        }   
+        }
         $id = $request->get("userId");
         DB::table("Users")->where(["id" => $id])->update(["isAdmin" => 1]);
         return back();
     }
     public function add_product( Request $request){
-        
+        if(session("isAdmin") == 0){
+            return redirect()->route("main");   
+        }
         $request->validate([
             "title" => "required|max:100",
             "img" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048",
@@ -60,10 +62,44 @@ class AdminController extends Controller{
         ]);
         return redirect()->route("product-add");
     }
-    public function delete_product(){
+    public function delete_product(Request $request){
         if(session("isAdmin") == 0){
             return redirect()->route("main");   
         }
+        $id = $request->get("productId");
+        DB::table("Products")->delete($id);
+        return redirect()->route("products");
+    }
+    public function change_product(Request $request){
+        if(session("isAdmin") == 0){
+            return redirect()->route("main");   
+        }
+        $request->validate([
+            "id" => "Integer",
+            "title" => "required|max:100",
+            "img" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048",
+            "descriptionTitle" => "required|max:200",
+            "description" => "required",
+            "price" => "required",
+        ]);
+        $id = $request->get("id");
+        $title = $request->get("title");
+        $image = $request->file("img");
+        $descriptionTitle = $request->get("descriptionTitle");
+        $description = $request->get("description");
+        $price = $request->get("price");
+        $type = $request->get("type");
+        $path = $image->store("images", "public");
+        $oldproduct = DB::table("Products")->where(["id" => $id])->get(0);
+        Storage::disk("public")->delete($oldproduct->img);
+        DB::table("Products")->where(["id" => $id])->update([
+        "type_id" => $type,
+        "name" => $title,
+        "description" => $descriptionTitle,
+        "description_full" => $description,
+        "img" => "storage/".$path,
+        "cost" => $price, ]);
+        return redirect()->route("products");
     }
     public function add_rewiew(Request $request){
         if(empty(session(("userId")))){
@@ -81,15 +117,13 @@ class AdminController extends Controller{
         }
         return redirect()->route("rewiews");
     }
-    public function change_product(){
+    public function delete_rewiew(Request $request){
         if(session("isAdmin") == 0){
             return redirect()->route("main");   
         }
-    }
-    public function delete_rewiew(){
-        if(session("isAdmin") == 0){
-            return redirect()->route("main");   
-        }
+        $id = $request->get("rewiewId");
+        DB::table("Rewiews")->delete($id);
+        return redirect()->route("rewiews-admin");
     }
     public function add_image(Request $request){
         if(session("isAdmin") == 0){

@@ -98,6 +98,7 @@ class RegisterController extends Controller{
             DB::table("Users")->delete(session("userId"));
                 session()->remove("userId");
                 session()->remove("username");
+                Storage::disk("public")->delete(session("avatarLink"));
                 session()->remove("avatarLink");
                 return redirect()->route("main");
         }else{

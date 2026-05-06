@@ -31,23 +31,7 @@ class MainController extends Controller{
 
         return $query->orderBy("cost", $reverse)->paginate($pagination);
     }
-
-    public function main(){
-        return view("main");
-    }
-    public function menu(Request $request){
-        $products = self::filter($request, 9);
-        return view("menu", ["products" => $products]);
-    }
-    public function special(){
-        
-        return view("special");
-    }
-    public function about(){
-
-        return view("about");
-    }
-    public function rewiews(Request $request){
+    private function rewiews_filter(Request $request){
         $stars = $request->get("stars", null);
         $reverse = $request->get("reverse", "desc");
         $rewiews = DB::table("Rewiews")->join("Users", "Rewiews.user_id", "=", "Users.id");
@@ -65,6 +49,26 @@ class MainController extends Controller{
                 $rewiews->orderBy("stars", $reverse);
                 break;
         }
+        return $rewiews;
+    }
+
+    public function main(){
+        return view("main");
+    }
+    public function menu(Request $request){
+        $products = self::filter($request, 9);
+        return view("menu", ["products" => $products]);
+    }
+    public function special(){
+        
+        return view("special");
+    }
+    public function about(){
+
+        return view("about");
+    }
+    public function rewiews(Request $request){
+        $rewiews = self::rewiews_filter($request);
         return view("rewiews", ["rewiews" => $rewiews->paginate(6)]);
     }
     public function registration(){
@@ -88,12 +92,21 @@ class MainController extends Controller{
         $users = DB::table("Users")->paginate(8);
         return view("admin/users-admin", ["users" => $users]);
     }
+    public function admin_change_product(Request $request){
+        $id = $request->get("productId");
+        $product = DB::table("Products")->where(["id" => $id])->get();
+        return view("admin/product-change", ["product" => $product->get(0)]);
+    }
     public function admin_product(Request $request){
         $products = self::filter($request, 8);
         return view("admin/products-admin", ["products" => $products]);
     }
     public function admin_add_product(){
         return view("admin/product-add");
+    }
+    public function admin_rewiews(Request $request){
+        $rewiews = self::rewiews_filter($request);
+        return view("admin/rewiews-admin", ["rewiews" => $rewiews->paginate(6)]);
     }
 }
 

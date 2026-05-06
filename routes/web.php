@@ -35,4 +35,8 @@ Route::get("/admin/productadd", [App\Http\Controllers\MainController::class, "ad
 Route::post("/admin/newproduct", [App\Http\Controllers\AdminController::class, "add_product"])->name("new-product");
 Route::post("/admin/newimage", [App\Http\Controllers\AdminController::class, "add_image"])->name("newImage");
 Route::post("/newrewiew", [App\Http\Controllers\AdminController::class, "add_rewiew"])->name("new-rewiew");
-
+Route::get("/admin/rewiews", [App\Http\Controllers\MainController::class, "admin_rewiews"])->name("rewiews-admin");
+Route::get("/admin/changePopductPage", [App\Http\Controllers\MainController::class, "admin_change_product"])->name("changeProductPage");
+Route::post("/admin/productDelete", [App\Http\Controllers\AdminController::class, "delete_product"])->name("deleteProduct");
+Route::post("/admin/changeProduct", [App\Http\Controllers\AdminController::class, "change_product"])->name("changeProduct");
+Route::post("/admin/deleteRewiew", [App\Http\Controllers\AdminController::class, "delete_rewiew"])->name("deleteRewiew");

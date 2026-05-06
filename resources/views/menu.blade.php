@@ -40,7 +40,7 @@
             @foreach ($products as $product)
             <div class="menu-card">
                 <h2>{{ $product->name }}</h2>
-                <img src=" {{ $product->img }}" alt="product image">
+                <img loading="lazy" src=" {{ $product->img }}" alt="product image">
                 <p>
                     {{ $product->cost }}
                 </p>

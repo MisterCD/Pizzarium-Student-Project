@@ -39,7 +39,7 @@ for(let i = 1; i <= 5; i++){
     stars_filter.append(star);
 }
 
-
+if(stars_send != undefined){
 for(let i = 1; i <= 5; i++){
     let star = document.createElement("div");
     star.id = "star_send_" + i;
@@ -51,6 +51,7 @@ for(let i = 1; i <= 5; i++){
         changeStars("star_send_",i);
     }
     stars_send.append(star);
+}
 }
 
 clear.onclick = () => {
