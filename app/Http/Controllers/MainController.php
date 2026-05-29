@@ -60,8 +60,22 @@ class MainController extends Controller{
         return view("menu", ["products" => $products]);
     }
     public function special(){
-        
         return view("special");
+    }
+    public function notification(Request $request){
+        $userId = session("userId");
+        $notifications = DB::table("Notifications")->where("user_id", $userId)->get();
+        return view("notifications", ["Notifs" => $notifications]);
+    }
+    public function basket(){
+        $id = session("userId");
+        if($id == null){
+            return back();
+        }
+        $Products = DB::table("Basket")->where("user_id", $id)
+        ->join("Products", "Basket.product_id", "=", "Products.id")
+        ->select("Basket.*","Products.name", "Products.description", "Products.cost", "Products.img","Products.id as product_id")->get();
+        return view("basket", ["Products" => $Products]);
     }
     public function about(){
 

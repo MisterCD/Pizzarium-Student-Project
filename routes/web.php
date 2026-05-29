@@ -20,12 +20,17 @@ Route::get('/special', [App\Http\Controllers\MainController::class, "special"])-
 Route::get('/about', [App\Http\Controllers\MainController::class, "about"])->name("about");
 Route::get('/rewiews', [App\Http\Controllers\MainController::class, "rewiews"])->name("rewiews");
 Route::get("/user", [App\Http\Controllers\MainController::class, "user"])->name("user");
+Route::get("/basket", [App\Http\Controllers\MainController::class, "basket"])->name("basket");
 Route::get("/register", [App\Http\Controllers\MainController::class, "registration"])->name("register");
+Route::get("/notifications", [App\Http\Controllers\MainController::class, "notification"])->name("notifications");
 Route::post("/register/new", [App\Http\Controllers\RegisterController::class, "register"])->name("newUser");
 Route::post("/register/login", [App\Http\Controllers\RegisterController::class, "login"])->name("login");
 Route::post("/user/change", [App\Http\Controllers\RegisterController::class, "change"])->name("change");
 Route::post("/user/add", [App\Http\Controllers\RegisterController::class, "addMoney"])->name("addMoney");
 Route::post("/user/delete", [App\Http\Controllers\RegisterController::class, "delete"])->name("delete");
+Route::post("/addBasket", [App\Http\Controllers\RegisterController::class, "addBasket"])->name("addBasket");
+Route::get("/deleteBasket", [App\Http\Controllers\RegisterController::class, "deleteBasket"])->name("deleteBasket");
+Route::get("/deleteNotif", [App\Http\Controllers\RegisterController::class, "deleteNotification"])->name("deleteNotif");
 Route::post("/admin/set", [App\Http\Controllers\AdminController::class, "set_admin"])->name("setAdmin");
 Route::post("/admin/del",[App\Http\Controllers\AdminController::class, "delete_user"])->name("deleteUser");
 Route::get("/logout", [App\Http\Controllers\RegisterController::class, "logout"])->name("logout");

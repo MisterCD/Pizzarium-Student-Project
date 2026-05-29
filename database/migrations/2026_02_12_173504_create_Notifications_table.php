@@ -16,11 +16,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Notifications', function (Blueprint $table) {
-            $table->integer('id')->nullable(false)->autoIncrement();
+            $table->integer('id')->autoIncrement();
             $table->integer('user_id')->nullable(false);
-            $table->text('text')->nullable(false);
-            $table->date('date')->nullable(false);
-            
+            $table->string("title")->nullable(false);
+            $table->text('description')->nullable(false);
+            $table->timestamp('date');
         });
     }
 

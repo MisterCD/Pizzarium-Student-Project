@@ -3,7 +3,7 @@
    <link href="./css/menu.css" rel="stylesheet">
 @endsection
 @section("description")
-
+    Меню заведения
 @endsection
 @section("content")
    <section class="menu">
@@ -60,7 +60,8 @@
                             <input type="number" name="id" hidden value="{{ $product->id }}">
                             <button type="submit">Подробнее</button>
                         </form>
-                        <form>
+                        <form method="post" action="{{ route("addBasket") }}">
+                            @csrf
                             <input type="number" name="id" hidden value="{{ $product->id }}">
                             <button type="submit">В корзину</button>
                         </form>

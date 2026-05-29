@@ -179,6 +179,26 @@ class RegisterController extends Controller{
         }
         return redirect()->route("user", )->with("message", $sucsess)->with( "error", $error);
     }
+    public function addBasket(Request $request){
+        $productId = $request->get("id");
+        $userId = session("userId");
+        if($userId == null){
+            return back();
+        }
+        DB::table("Basket")->insert(["product_id" => $productId, "user_id" => $userId]);
+        $user = DB::table("Users")->where("id", $userId)->get();
+        return back()->with(["user" => $user]);
+    }
+    public function deleteNotification(Request $request){
+        $id = $request->get("id");
+        DB::table("Notifications")->delete($id);
+        return back();
+    }
+    public function deleteBasket(Request $request){
+        $id = $request->get("id");
+        DB::table("Basket")->delete($id);
+        return back();
+    }
     public function addMoney(Request $request){
         $vallet = DB::table("Users")->where(["id" => session("userId")])->value("vallet");
         $cost = $request->get("cost");

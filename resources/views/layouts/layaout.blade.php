@@ -37,12 +37,12 @@
                         <div class="vallet">
                         {{ session("vallet") }} р
                         </div>
-                        <a href="">
+                        <a href="{{ route("basket") }}">
                             <div class="bascket">
                                 <img src="./images/basket.svg">
                             </div>
                         </a>
-                        <a href="">
+                        <a href="{{ route("notifications") }}">
                             <div class="bascket">
                                 <img src="./images/notification.svg">
                             </div>

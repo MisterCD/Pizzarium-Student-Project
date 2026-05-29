@@ -123,7 +123,6 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    position: relative;
 }
 .user-container form h1{
     left: 15px;
