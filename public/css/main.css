@@ -34,16 +34,41 @@ main{
     box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
     max-width: 1200px;
 }
-.about{
-    background: none;
-    box-shadow: none;
-}
+
 @media (max-width:600px) {
     .info{
         width: 100%;
     }
 }
 
+.special-container{
+    display: grid;
+    width:600px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+.special-container p{
+    padding: 8px;
+    border-radius: 8px;
+    background: var(--thithcolor);
+    font-family: "Sigmar Cyr";
+    font-size: 25px;
+    color: rgb(232, 232, 232);
+    box-shadow: 0 0 15px black;
+}
+
+#special1 img{
+    height:300px;
+    width: 300px;
+}
+.special{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    box-shadow: none;
+}
 
 .menu h1{
     z-index: 4;

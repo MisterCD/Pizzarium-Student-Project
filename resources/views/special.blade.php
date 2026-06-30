@@ -1,14 +1,14 @@
 @extends("./layouts/layaout")
 @section("styles")
-   
+   <link rel="stylesheet" href="{{ asset("css/special.css") }}">
 @endsection
 @section("description")
 
 @endsection
 @section("content")
    <section class="special">
-      <div class="special-container">
-         <img src="">
+      <div class="special-container" id="special1">
+         <img src="{{ asset("images/gift.png") }}">
          <p>
             скидка 20% на пиццу при заказе от 1000 рублей
          </p>

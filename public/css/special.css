@@ -1,0 +1,50 @@
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:40px;
+    margin-bottom: 40px;
+}
+
+
+
+
+
+.special{
+    margin-top: 150px;
+    position: relative;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    border-radius: 15px;
+    max-width: 1200px; 
+}
+
+.special-container{
+    display: grid;
+    width:600px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+.special-container p{
+    padding: 8px;
+    border-radius: 8px;
+    background: var(--thithcolor);
+    font-family: "Sigmar Cyr";
+    font-size: 25px;
+    color: rgb(232, 232, 232);
+    box-shadow: 0 0 15px black;
+}
+
+#special1 img{
+    height:300px;
+    width: 300px;
+}
+
+
+

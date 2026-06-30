@@ -10,8 +10,14 @@
         <img src="./images/PizzaFull.png">
         Окунитесь в мир вкуса
     </section>
-    <section class="info about">
+    <section class="info special">
         <h1>Актуальные акции сегодня</h1>
+        <div class="special-container" id="special1">
+         <img src="{{ asset("images/gift.png") }}">
+         <p>
+            скидка 20% на пиццу при заказе от 1000 рублей
+         </p>
+        </div>
     </section>
     <section class="info menu">
         <h1>Новинки в меню</h1>
