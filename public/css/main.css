@@ -13,6 +13,7 @@ main{
     font-size: 25px;
     height: 100vh;
 }
+
 .banner img{
     animation: rotate 5s infinite alternate;
 }
@@ -33,17 +34,20 @@ main{
     box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
     max-width: 1200px;
 }
+.about{
+    background: none;
+    box-shadow: none;
+}
 @media (max-width:600px) {
     .info{
         width: 100%;
     }
 }
-.reviews h1{
-    left: 25px;
-}
 
-.popular h1{
-    right: 25px;
+
+.menu h1{
+    z-index: 4;
+    right:15px;
 }
 .menu-card{
     position: relative;
@@ -82,7 +86,7 @@ main{
     overflow: hidden;
     font-family: "Sigmar Cyr";
 }
-.popular{
+.menu{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
@@ -128,10 +132,68 @@ main{
     position: relative;
     width: 400px;
     height: 200px;
+    padding: 8px;
     border-radius: 15px;
     background: var(--thirdcolortransperent);
     box-shadow: inset 5px 5px 15px var(--thirdcolor), inset -5px -5px 15px var(--thirdcolor);
 }
+.rewiew-card img{
+    position: absolute;
+    top:-30px;
+    left:-30px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background: white;
+    width: 60xp;
+    height: 60px;
+    pointer-events: none;
+}
+.rewiew-card .text{
+    border-top: 2px solid white;
+    margin-top: 25px;
+    text-wrap: wrap;
+    overflow-wrap: break-word;
+    font-size: 15px;
+    font-family: "Sigmar Cyr";
+    color: white;
+    height: 100%;
+    pointer-events: none;
+}
+.rewiew-card .stars{
+    position: absolute;
+    right:-10px;
+    top:-10px;
+    padding: 8px;
+    display: flex;
+    background: var(--maincolor);
+    box-shadow: 0 0 15px var(--maincolor);
+    border-radius: 15px;
+    pointer-events: none;
+}
+.stars svg{
+    fill:yellow;
+}
 .rewiew-card h2{
     left: 15px;
+    padding-left: 30px;
+    pointer-events: none;
+}
+h2{
+    position: absolute;
+    top:-30px;
+    padding: 8px;
+    left: 15px;
+    font-family: "Sigmar Cyr";
+    font-size: 15px;
+    color: white;
+    border-radius: 15px;
+    background: var(--thithcolor);
+    box-shadow: 0 0 15px black;
+}
+.reviews{
+    height: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    background: none;
+    box-shadow: none;
 }

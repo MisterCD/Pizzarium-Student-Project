@@ -72,9 +72,11 @@ main{
 }
 #product-description{
     display: flex;
+    padding: 8px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap:5px;
 }
 #product-description h2{
     position: absolute;
@@ -115,7 +117,7 @@ main{
     position: relative;
     overflow: hidden;
     width: 80%;
-    height: 200px;
+    height: 300px;
     border-radius: 15px;
 }
 slider-component .container{

@@ -23,6 +23,7 @@ class AdminController extends Controller{
         };
         $id = $request->get("userId");
         DB::table("Users")->delete($id);
+        DB::table("Rewiews")->where("user_id", $id)->delete();
         return back();
     }
     public function set_admin(Request $request){

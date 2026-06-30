@@ -21,7 +21,9 @@
                         <a href="{{ route("special") }}">Акции</a>
                         <a href="{{ route("about") }}">О нас</a>
                         <a href="{{ route("rewiews") }}">Отзывы</a>
+                        @if(session("isAdmin") == 1)
                         <a href="{{ route("admin") }}">Админ</a>
+                        @endif
                     </nav>
                 </div>
                 <div class="rightside">
@@ -118,10 +120,13 @@
                     <img src="./images/Logo.svg">
                  </div>
                  <nav>
-                        <a>Меню</a>
-                        <a>Акции</a>
-                        <a href="">Отзывы</a>
-                        <a>О нас</a>
+                        <a href="{{ route("menu") }}">Меню</a>
+                        <a href="{{ route("special") }}">Акции</a>
+                        <a href="{{ route("about") }}">О нас</a>
+                        <a href="{{ route("rewiews") }}">Отзывы</a>
+                        @if(session("isAdmin") == 1)
+                        <a href="{{ route("admin") }}">Админ</a>
+                        @endif
                  </nav>
                 </div>
                  <div class="contacts">

@@ -89,6 +89,7 @@ class RegisterController extends Controller{
         session()->remove("userId");
         session()->remove("username");
         session()->remove("avatarLink");
+        session()->remove("isAdmin");
         return redirect()->route("main");
     }
     public function delete(Request $request){
@@ -96,6 +97,7 @@ class RegisterController extends Controller{
         $hash = DB::table("Users")->where(["id" => session("userId")])->value("password");
         if(Hash::check($password, $hash)){
             DB::table("Users")->delete(session("userId"));
+            DB::table("Rewiews")->where("user_id", session("userId"))->delete();
                 session()->remove("userId");
                 session()->remove("username");
                 Storage::disk("public")->delete(session("avatarLink"));

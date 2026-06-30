@@ -27,7 +27,7 @@
         @foreach ($rewiews as $rewiew)
             <div class="rewiew-card">
                <h2>{{ $rewiew->username }}</h2>
-               <img src="{{ $rewiew->avatar }}">
+               <img src="{{ asset("storage/".$rewiew->avatar) }}">
                 <div class="stars">
                     @for ($i = 1; $i <= $rewiew->stars; $i++)
                         <div>

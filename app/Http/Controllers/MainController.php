@@ -53,7 +53,9 @@ class MainController extends Controller{
     }
 
     public function main(){
-        return view("main");
+        $products = DB::table("Products")->orderBy("id", "desc")->limit(3)->get();
+        $rewiews = DB::table("Rewiews")->orderBy("id", "desc")->limit(4)->join("Users","Rewiews.user_id","=","Users.id")->get();
+        return view("main", ["products" => $products, "rewiews" => $rewiews]);
     }
     public function menu(Request $request){
         $products = self::filter($request, 9);

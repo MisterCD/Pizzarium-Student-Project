@@ -45,3 +45,4 @@ Route::get("/admin/changePopductPage", [App\Http\Controllers\MainController::cla
 Route::post("/admin/productDelete", [App\Http\Controllers\AdminController::class, "delete_product"])->name("deleteProduct");
 Route::post("/admin/changeProduct", [App\Http\Controllers\AdminController::class, "change_product"])->name("changeProduct");
 Route::post("/admin/deleteRewiew", [App\Http\Controllers\AdminController::class, "delete_rewiew"])->name("deleteRewiew");
+Route::post("/admin/orders", [APP\Http\Controllers\AdminController::class, "admin_orders"])->name("admin:orders");
